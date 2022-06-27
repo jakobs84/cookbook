@@ -18,6 +18,65 @@ li{
     padding:  1px;
 }
 
+input[type="button"] {
+    display: block;
+    width: 100%;
+    margin: 20px 0;
+    background: #dd9b22;
+    font-weight:bolder;
+    border: 0;
+    padding: 20px;
+    font-size: 1.2rem;
+  }
+  input[type=number] {
+    display: block;
+    width: 100%;
+    margin: 20px 0;
+    background: rgba(221, 155, 34,0.70);   
+    text-align: center;
+    font-weight:bolder;
+    border: 0;
+    padding: 20px;
+    font-size: 1.2rem;
+    -moz-appearance: textfield;
+    outline: none;
+    
+  }
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+  }
+
+  input[type=checkbox] {
+    height: 30px;
+    width: 30px;
+
+    width: 100%;
+  }
+
+
+/*
+  input[type=number] {
+    width: 70%;
+    padding: 10px;
+    margin: 20px 0;
+    border:0;
+    box-shadow:0 0 15px 4px rgba(221, 155, 34,0.50);
+  }
+  
+  input[type=checkbox] {
+    width: 10%;
+    padding: 10px;
+    margin: 20px 0;
+    border:0;
+    box-shadow:0 0 15px 4px rgba(221, 155, 34,0.50);
+  
+}
+
+  */
+
+  
 header{
 height: 100vh;
 background-image: url(./pic/coffee-g18c6eccc8_1280.jpg); 
