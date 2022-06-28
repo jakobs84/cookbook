@@ -19,7 +19,7 @@ li{
 }
 
 input[type="button"] {
-    display: block;
+   /* display: block; */
     width: 80%;
     margin: 20px 0;
     background: #dd9b22;
@@ -27,9 +27,10 @@ input[type="button"] {
     border: 0;
     padding: 20px;
     font-size: 1.2rem;
+
   }
   input[type=number] {
-    display: block;
+   /* display: block; */
     width: 80%;
     margin: 20px 0;
     background: rgba(221, 155, 34,0.70);   
@@ -40,7 +41,7 @@ input[type="button"] {
     font-size: 1.2rem;
     -moz-appearance: textfield;
     outline: none;
-    
+
   }
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {
@@ -51,7 +52,6 @@ input[type="button"] {
   input[type=checkbox] {
     height: 30px;
     width: 30px;
-
     width: 100%;
   }
 
@@ -106,9 +106,8 @@ padding: 20px;
 }
 
 .aaa{
-  padding: 20px;
-  align-items: center; 
-  width: 50%;   
+/*  padding: 20px; */
+  text-align: center;
   }
 
 .img {
