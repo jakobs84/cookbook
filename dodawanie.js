@@ -1,17 +1,28 @@
 function suma()
  {
 
-   var a = document.getElementById("waga").value;
+    /*  
+        skrypt wyliczający ilość cheleba na keksówkę "-" waga misy
+        nic skomplikowanego
+    */
+  
+   var a = parseFloat(document.getElementById("waga").value);
    var checkBox = document.getElementById("misa");
-   //   a = parseFloat(a);
-   
-
+ 
    if (a > 2000){
     if (checkBox.checked == true){
-        alert(((((a - 825)/3))| 0)+" g");
+        
+ 
+     document.querySelector('input[name="waga"]').value = ((((a - 825)/3)| 0));
+   
+
     } else {
-        alert((((a - 795)/3)| 0)+" g");
+        
+   
+      document.querySelector('input[name="waga"]').value = ((((a - 795)/3)| 0));
     }
-   } else {alert("Za mało!!")};
+   } else {
+    alert("Za mało!! Waga > 2000g"); 
+};
    
  } 

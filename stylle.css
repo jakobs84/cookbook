@@ -20,7 +20,7 @@ li{
 
 input[type="button"] {
     display: block;
-    width: 100%;
+    width: 80%;
     margin: 20px 0;
     background: #dd9b22;
     font-weight:bolder;
@@ -30,7 +30,7 @@ input[type="button"] {
   }
   input[type=number] {
     display: block;
-    width: 100%;
+    width: 80%;
     margin: 20px 0;
     background: rgba(221, 155, 34,0.70);   
     text-align: center;
@@ -104,6 +104,13 @@ padding: 20px;
     line-height: 1.5;
 
 }
+
+.aaa{
+  padding: 20px;
+  align-items: center; 
+  width: 50%;   
+  }
+
 .img {
    background-image: url(./pic/coffee-gc95295aa8_1280.jpg); 
    background-position: center;
