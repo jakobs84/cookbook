@@ -155,6 +155,23 @@ padding: 20px;
     margin: 10px auto;
  }
  
+ .pic_dro {
+  background-image: url(./pic/streusel-cake-ge1907c4aa_1280.jpg); 
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 150px;
+  margin: 10px auto;
+}
+.pic_len {
+  background-image: url(./pic/dumplings-gdad7b64d8_1280.jpg); 
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 150px;
+  margin: 10px auto;
+}
+
 footer {
     padding: 28px;
     background-color: rgb(231, 166, 68);
