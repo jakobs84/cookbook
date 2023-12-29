@@ -55,7 +55,7 @@
             </p>
             <div class="aaa">
                 
-                <input type="number" name="waga" id="waga" value="3200">
+                <input type="number" name="waga" id="waga" value="3400">
                 <input type="checkbox" id="misa">
                 <input type="button" value="Oblicz" onclick="suma()">
                 
@@ -127,15 +127,32 @@
         <div class="cookbook">
             <h2>Pizza na zakwasie bez drożdży</h2>
             <div class="pic_pizza"></div>
-            <p>Cztery placki po 160g
-            <ul>
-                <li>350g mąki "00"</li>
-                <li>200g wody</li>
-                <li>9g soli</li>
-                <li>2 Ł zakwasu</li>
-                <li>1 Ł oliwy</li>
-                <li>1 ł oregano prowansalskie</li>
-            </ul>
+            <p> Liczba placków po 160g - 
+                <input type="number" id="multiplier" value="4" min="1" max="20" oninput="calculate()" style="max-width: 80px; max-height:20px;">                
+            
+                <script>
+                    function calculate() {
+                      const multiplier = parseInt(document.getElementById('multiplier').value);
+                
+                      const flour = 95 * multiplier;
+                      const water = 53 * multiplier;
+                      const salt = 2.5 * multiplier;
+                      const sourdough = Math.ceil((multiplier / 2) * 1); // Zmiana sposobu liczenia sourdough
+                
+                      const proportions = [
+                        `${flour}g mąki "00"`,
+                        `${water}g wody`,
+                        `${salt}g soli`,
+                        `${sourdough} Ł zakwasu`,
+                        `${sourdough} Ł oliwy`,
+                        `${sourdough} ł oregano / prowansalskie`
+                      ];
+                
+                      const resultsList = document.getElementById('results');
+                      resultsList.innerHTML = proportions.map(item => `<li>${item}</li>`).join('');
+                    }
+                  </script>
+            <ul id="results"></ul>
             <ul>
                 <p>Mąkę napowietrzyć 15-20minut</p>
                 <p>Szybko wymieszać składniki!! Nie ubić!!!</p>
