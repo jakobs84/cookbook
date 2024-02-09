@@ -134,6 +134,15 @@ padding: 20px;
     height: 150px;
     margin: 10px auto;
  }
+ .pic_nap {
+  background-image: url(./pic/napolitana.jpg); 
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 150px;
+  margin: 10px auto;
+}
+
 
 .pic_bread {
     background-image: url(./pic/bread-g297592c72_1280.jpg); 
