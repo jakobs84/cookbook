@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Obliczanie operacji matematycznych</title>
+</head>
+<body>
+  <h1>Obliczanie operacji matematycznych</h1>
+  
+  
+  <input type="number" id="units" value="4">
+  <button onclick="calculate()">Oblicz</button>
+
+  <ul id="results"></ul>
+
+  <script>
+    function calculateOperations(units) {
+      const values = [95, 53, 2.5]; // Możesz tutaj wprowadzić swoje wartości a, b, c
+      const multipliers = [1, 0.5]; // Możesz tutaj wprowadzić swoje wartości d, e, f
+      
+      // Mnożenie przez wartości a, b, c
+      const multiplicationResults = values.map(value => value * units);
+      
+      // Dzielenie przez 2 i zaokrąglenie w górę
+      const divisionResults = Math.ceil(units / 2);
+      
+      // Pomnożenie przez wartości d, e, f
+      const finalResults = multipliers.map(multiplier => multiplier * divisionResults);
+      
+      return {
+        multiplicationResults,
+        divisionResults,
+        finalResults
+      };
+    }
+
+    function calculate() {
+      const units = parseInt(document.getElementById('units').value);
+      const results = calculateOperations(units);
+      const resultsList = document.getElementById('results');
+
+      resultsList.innerHTML = `
+        <li>Mnożenie przez a, b, c: ${results.multiplicationResults.join(', ')}</li>
+        <li>Podzielenie przez 2 i zaokrąglenie w górę: ${results.divisionResults}</li>
+        <li>Pomnożenie przez d, e, f: ${results.finalResults.join(', ')}</li>
+      `;
+    }
+  </script>
+</body>
+</html>

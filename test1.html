@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Obliczanie proporcji składników</title>
+</head>
+<body>
+  <h1>Obliczanie proporcji składników</h1>
+  
+  <button onclick="calculate()">Oblicz proporcje</button>
+  <input type="number" id="units" value="4">
+  
+  <p>350g mąki "00"</p>
+  <p>200g wody</p>
+  <p>9g soli</p>
+  <p>2 Ł zakwasu</p>
+  <p>1 Ł oliwy</p>
+  <p>1 ł oregano prowansalskie</p>
+
+  <p>Proporcje:</p>
+  <ul id="results"></ul>
+
+  <script>
+    function calculate(units) {
+      const flour = 350;
+      const water = 200;
+      const salt = 9;
+      const sourdough = 2;
+      const oliveOil = 1;
+      const oregano = 1;
+
+      const proportions = [
+        `Mąka "00": ${flour}g`,
+        `Woda: ${water}g`,
+        `Sól: ${salt}g`,
+        `Zakwas: ${sourdough} Ł`,
+        `Oliwa: ${oliveOil} Ł`,
+        `Oregano: ${oregano} ł`
+      ];
+
+      const resultsList = document.getElementById('results');
+      resultsList.innerHTML = proportions.map(item => `<li>${item}</li>`).join('');
+    }
+  </script>
+</body>
+</html>
