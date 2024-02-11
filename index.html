@@ -188,8 +188,8 @@
             <h2>Pizza Napolitana</h2>
             <div class="pic_nap"></div>
             <p> Liczba kólek po 250g (nawodnienie ~63%)- 
-                <input type="number2" id="multiplier_nap" value="4" min="1" max="20" oninput="calculate()" >                
-                <select id="yeastOption" onchange="calculate()">
+                <input type="number2" id="multiplier_nap" value="4" min="1" max="20" oninput="calculate_nap()" >                
+                <select id="yeastOption" onchange="calculate_nap()">
                     <option selected value="0.3">TP °C</option>
                     <option value="0.5">18°C - 21°C</option>
                     <option value="0.375">21°C - 23°C</option>
@@ -197,7 +197,7 @@
                 </select>
 
                 <script>                    
-                    function calculate() {
+                    function calculate_nap() {
                         const multiplier_nap = parseInt(document.getElementById('multiplier_nap').value);
                         const selected_yeast = parseFloat(document.getElementById('yeastOption').value); // Użyj parseFloat dla liczb zmiennoprzecinkowych
                         const currentTimeElement = document.getElementById('current-time');
