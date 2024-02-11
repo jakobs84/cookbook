@@ -69,6 +69,58 @@ input[type="button"] {
       outline: none;
   }
   
+  input[type="button"] {
+    background: #dd9b22;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="checkbox"] {
+    height: 30px;
+    width: 30px;
+    width: 100%;
+}
+
+/* Resetowanie stylów dla select */
+select#yeastOption {
+    width: 20%;
+    margin: 20px 0;
+    background: rgba(221, 155, 34, 0.70);
+    text-align: center;
+    font-weight: bolder;
+    border: 0;
+    padding: 20px;
+    font-size: 1.2rem;
+    -moz-appearance: textfield;
+    outline: none;
+}
+
+/* Resetowanie stylów dla select */
+select#yeastOption::-ms-expand {
+    display: none; /* Ukryj strzałkę rozwijania dla IE */
+}
+
+/* Resetowanie stylów dla select */
+select#yeastOption::-webkit-inner-spin-button,
+select#yeastOption::-webkit-outer-spin-button {
+    -webkit-appearance: none; /* Ukryj strzałki spin */
+    margin: 0; /* Zeruj margines */
+}
+
+/* Styl dla opcji w select */
+select#yeastOption option {
+    font-size: 1.2rem; /* Rozmiar czcionki takie samo jak dla input */
+}
+
+/* Resetowanie stylów dla opcji w select */
+select#yeastOption option:checked {
+    background-color: rgba(221, 155, 34, 0.70); /* Tło dla wybranej opcji takie samo jak dla input */
+}
+
 header{
 height: 100vh;
 background-image: url(./pic/coffee-g18c6eccc8_1280.jpg); 
