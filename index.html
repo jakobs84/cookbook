@@ -128,7 +128,7 @@
             <h2>Pizza na zakwasie bez drożdży</h2>
             <div class="pic_pizza"></div>
             <p> Liczba placków po 160g - 
-                <input type="number" id="multiplier" value="4" min="1" max="20" oninput="calculate()" style="max-width: 80px; max-height:20px;">                
+                <input type="number2" id="multiplier" value="4" min="1" max="20" oninput="calculate()">                
             
                 <script>
                     function calculate() {
@@ -188,11 +188,12 @@
             <h2>Pizza Napolitana</h2>
             <div class="pic_nap"></div>
             <p> Liczba kólek po 250g (nawodnienie ~63%)- 
-                <input type="number" id="multiplier_nap" value="4" min="1" max="20" oninput="calculate()" style="max-width: 80px; max-height:20px;">                
+                <input type="number2" id="multiplier_nap" value="4" min="1" max="20" oninput="calculate()" >                
                 <select id="yeastOption" onchange="calculate()">
-                    <option value="0.5">18 - 21</option>
-                    <option value="0.375">21 - 23</option>
-                    <option value="0.25">23 i więcej</option>
+                    <option selected value="0.3">TP °C</option>
+                    <option value="0.5">18°C - 21°C</option>
+                    <option value="0.375">21°C - 23°C</option>
+                    <option value="0.25">23°C i więcej</option>
                 </select>
 
                 <script>                    
