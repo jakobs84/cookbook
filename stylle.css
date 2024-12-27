@@ -68,6 +68,17 @@ input[type="button"] {
       font-size: 1.2rem;
       outline: none;
   }
+  select#ChlebOption {
+    width: 20%;
+    margin: 20px 0;
+    background: rgba(221, 155, 34, 0.70);
+    text-align: center;
+    font-weight: bolder;
+    border: 0;
+    padding: 20px;
+    font-size: 1.2rem;
+    outline: none;
+}
   
   input[type="button"] {
     background: #dd9b22;

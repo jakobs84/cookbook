@@ -24,29 +24,44 @@
         <div class="cookbook">
             <h2>Chleb na zakwasie</h2>
             <div class="pic_bread"></div>
-            <p>Dokarmiamy zakwas 4-6 godzin przed urzyciem. Chleb 3 keksówki.
+            <p>Produkcja 3D
+            <p>Budzimy zakwas 4-6 godzin przed urzyciem. (8-10)
+            <p>Wstępne rozmnażanie zakwasu 12h (16-22)</p>
+            <p>Rozmnażanie zakwasu 24h (8-10)</p>    Chleb 3 keksówki.
+            <p>Przygotowanie ciata 1h (8-10)</p>
+            <p>Wyrastanie 4-10h (14-18)</p>
+            <p></p> 
+    
+                <select id="ChlebOption" onchange="przeliczProporcje()">
+                    <option selected value="wagi800">800g</option>
+                    <option value="wagi1000">1000g</option>
+                </select>
+
                 <ul>
-                    <li>300g zakwasu żytniego</li>
-                    <li>500g m.orkiszowej</li>
-                    <li>500g wody</li>
+                    <li><span class="skladnik" data-key="zakwas"></span>g zakwasu żytniego</li>
+                    <li><span class="skladnik" data-key="orkiszowaZ"></span>g m.orkiszowej</li>
+                    <li><span class="skladnik" data-key="wodaZ"></span>g wody</li>
                     <li>Odstawiamy 10-12 godzin 25-30&deg;C</li>
                 </ul>
                 <ul>
-                    <li>300g wody</li>
-                    <li>50g  miodu</li>
-                    <li>55-60g soli</li>
+                    <li><span class="skladnik" data-key="woda"></span>g wody</li>
+                    <li><span class="skladnik" data-key="miod"></span>g miodu</li>
+                    <li><span class="skladnik" data-key="sol"></span>g soli</li>
                 </ul>
                 <ul>
-                    <li>400g m.orkiszowej</li>
-                    <li>320g m.żytniej</li>
-                    <li>80g  m.owsianej</li>
+                    <li><span class="skladnik" data-key="orkiszowa"></span>g m.orkiszowej</li>
+                    <li><span class="skladnik" data-key="zytnia"></span>g m.żytniej</li>
+                    <li><span class="skladnik" data-key="owsiana"></span>g m.owsianej</li>
                 </ul>
                 <ul>
-                    <li>50g słonecznik</li>
-                    <li>50g sezam</li>
-                    <li>50g dynia</li>
-                    <li>60g siemię</li> 
+                    <li><span class="skladnik" data-key="slonecznik"></span>g słonecznik</li>
+                    <li><span class="skladnik" data-key="sezam"></span>g sezam</li>
+                    <li><span class="skladnik" data-key="dynia"></span>g dynia</li>
+                    <li><span class="skladnik" data-key="siemie"></span>g siemię</li>
                 </ul>
+            
+                <p>Suma wag: <span id="suma-wag"></span>g</p>
+
             <p>
                 Odstawiamy do wyrośnięcia 3-6h 25-30&deg;C
             </p>
@@ -60,6 +75,77 @@
                 <input type="button" value="Oblicz" onclick="suma()">
                 
             </div>
+            <script>
+                // Wartości dla 800g
+                const wagi1000 = {
+                    zakwas: 300,
+                    orkiszowaZ: 500,
+                    wodaZ: 500,
+                    woda: 360,
+                    miod: 60,
+                    sol: 66,
+                    orkiszowa: 500,
+                    zytnia: 400,
+                    owsiana: 100,
+                    slonecznik: 50,
+                    sezam: 50,
+                    dynia: 50,
+                    siemie: 60
+                };
+        
+                // Wartości dla 1000g (już gotowe, bez przeliczania)
+                const wagi800 = {
+                    zakwas: 300,
+                    orkiszowaZ: 500,
+                    wodaZ: 500,
+                    woda: 300,
+                    miod: 50,
+                    sol: 60,
+                    orkiszowa: 400,
+                    zytnia: 320,
+                    owsiana: 80,
+                    slonecznik: 50,
+                    sezam: 50,
+                    dynia: 50,
+                    siemie: 60
+                };
+        
+                function przeliczProporcje() {
+                const selectedValue = document.getElementById("ChlebOption").value;
+                const wagi = selectedValue === "wagi800" ? wagi800 : wagi1000;
+                const elements = document.querySelectorAll('.skladnik');
+                elements.forEach(element => {
+                    const key = element.getAttribute('data-key');
+                    if (wagi[key] !== undefined) {
+                        element.textContent = `${wagi[key]}`;
+                    }
+                });
+                sumujWagi();
+                }
+
+
+                function sumujWagi() {
+                    let suma = 0;
+                    const elements = document.querySelectorAll('.skladnik');
+                    elements.forEach(element => {
+                        const value = parseFloat(element.textContent);
+                        suma += value;
+                    });
+                    const wynikPodzielony = (suma / 3).toFixed(0);
+                    document.getElementById('suma-wag').textContent = wynikPodzielony;
+                }
+        
+                // window.onload = function () {
+                // const defaultOption = document.getElementById("ChlebOption").value;
+                // const wagi = defaultOption === "wagi800" ? wagi800 : wagi1000;
+                // przeliczProporcje();
+                // };    
+
+                //window.onload = function() {
+                //    przeliczProporcje(wagi800);  // Ustawienie domyślnych wartości na 800g
+                //};
+            </script>
+
         </div>
         <div class="cookbook">
             <h2>Drożdżówka</h2>
@@ -196,7 +282,12 @@
                     <option value="0.25">23°C i więcej</option>
                 </select>
 
-                <script>                    
+                <script>
+                    window.onload = function() {
+                    calculate_nap();  // Ustawienie domyślnych wartości dla Pizza Napolitana
+                    calculate();
+                    przeliczProporcje(); // Ustawienie domyślnych wartości dla cHLEB
+                    };                    
                     function calculate_nap() {
                         const multiplier_nap = parseInt(document.getElementById('multiplier_nap').value);
                         const selected_yeast = parseFloat(document.getElementById('yeastOption').value);                              
@@ -232,6 +323,7 @@
                         const resultsList = document.getElementById('results2');
                         resultsList.innerHTML = proportions;
                     }
+
                 </script>
             <ul id="results2"></ul>
                 <ul>
